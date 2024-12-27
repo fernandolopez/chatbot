@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "chatbot"
+version = "0.1.0"
+description = "Generic chat interface for different LLMs"
+authors = ["Fernando López <fernando.e.lopez@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mesop = "^0.13.0"
+langchain-openai = "^0.2.12"
+groq = "^0.13.1"
+langchain-groq = "^0.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.3"
+pytest = "^8.3.4"
+pytest-watch = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
