@@ -3,10 +3,11 @@ from typing import Sequence
 from itertools import chain
 
 from langchain_groq import ChatGroq
-from .base import BaseModel
+from langchain_ollama import OllamaEmbeddings
+from .base import LLMServiceBase
 
 
-class GROQ(BaseModel):
+class GROQService(LLMServiceBase):
     def __init__(self):
         self.model = ChatGroq(
             model="llama3-8b-8192",
@@ -53,3 +54,6 @@ class GROQ(BaseModel):
         input_msgs = list(chain(prelude, history, user_message))
         chat_completion = self.model.invoke(input=input_msgs)
         return chat_completion.content
+
+    def get_embeddings(self):
+        return OllamaEmbeddings(model="llama3")
